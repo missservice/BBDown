@@ -11,7 +11,7 @@ public partial class NormalInfoFetcher : IFetcher
 {
     public async Task<VInfo> FetchAsync(string id)
     {
-        string api = $"https://api.bilibili.com/x/web-interface/view?aid={id}";
+        string api = $"https://api.bilibili.com/x/web-interface/wbi/view/detail?aid={id}";
         string json = await GetWebSourceAsync(api);
         using var infoJson = JsonDocument.Parse(json);
         var data = infoJson.RootElement.GetProperty("data");
